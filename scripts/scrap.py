@@ -18,9 +18,11 @@ def process_text(text):
     #         verse_number = 0
     #
     splitted_text = text.split('[سورة')[1:]
-    remove_rx = re.compile(r'الإعراب المفصل لكتاب الله المرتل - جـ 1\(ص: \d*\)')
+    remove_rx1 = re.compile(r'الإعراب المفصل لكتاب الله المرتل - جـ \d*\(ص: \d*\)')
+    remove_rx2 = re.compile(r'\n ‌‌إعراب سورة ([\u0621-\u064A0-9 ]*)')
     for ayah in splitted_text:
-        re.sub(remove_rx, '', ayah)  # removing the title
+        ayah = re.sub(remove_rx1, '', ayah.strip())  # removing the title
+        ayah = re.sub(remove_rx2, '', ayah.strip())  # removing the title
         rx = re.compile(r'(\d+)')
         num = re.findall(rx, ayah)
         surah_number = num[0]
