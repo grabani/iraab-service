@@ -7,16 +7,6 @@ from bs4 import BeautifulSoup
 def process_text(text):
     parsed_text = {}
 
-    # first up, clean the introductory text
-    # while(text.find('[سورة')):
-    #     first_sura_idx = text.find('[سورة')
-    #     if first_sura_idx == -1: # not found
-    #         return parsed_text
-    #     else:
-    #         text = text[first_sura_idx:]
-    #         sura_number = 0
-    #         verse_number = 0
-    #
     splitted_text = text.split('[سورة')[1:]
     remove_rx1 = re.compile(r'الإعراب المفصل لكتاب الله المرتل - جـ \d*\(ص: \d*\)')
     remove_rx2 = re.compile(r'\n ‌‌إعراب سورة ([\u0621-\u064A0-9 ]*)')
@@ -39,6 +29,7 @@ def process_text(text):
         parsed_text[surah_number][ayah_number].append(ayah_text)
         parsed_text[surah_number][ayah_number].append(ayah_irab)
 
+    print(parsed_text)
     return parsed_text
 
 
@@ -57,12 +48,12 @@ def extract_text_from_path(htm_path):
     chunks = (phrase for line in lines for phrase in line.split("  "))
     # drop blank lines
     text = '\n'.join(chunk for chunk in chunks if chunk)
-    # print(text)
+    print(text)
     return text
 
 
 if __name__ == '__main__':
-    htm_path = '../data/001.htm'
+    htm_path = '../data/005.htm'
 
     text = extract_text_from_path(htm_path)
 
