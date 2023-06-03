@@ -67,9 +67,10 @@ def process_005(text):
             irab_head = irab.split(':')[0]
             irab_body = irab[irab.find(':') + 1:]
             ayah_irab.update({irab_head: irab_body})
-        parsed_text.setdefault(surah_number, {}).setdefault(ayah_number, [])
-        parsed_text[surah_number][ayah_number].append(ayah_text)
-        parsed_text[surah_number][ayah_number].append(ayah_irab)
+        surah_num = convert_english_to_arabic_numbers(surah_number)
+        parsed_text.setdefault(surah_num, {}).setdefault(ayah_number, [])
+        parsed_text[surah_num][ayah_number].append(ayah_text)
+        parsed_text[surah_num][ayah_number].append(ayah_irab)
         if (surah_number == 10 and ayah_number == convert_english_to_arabic_numbers(109)) or (
                 surah_number == 11 and ayah_number == convert_english_to_arabic_numbers(123)) or (
                 surah_number == 12 and ayah_number == convert_english_to_arabic_numbers(111)) or (
