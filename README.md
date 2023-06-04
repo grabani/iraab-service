@@ -15,7 +15,7 @@ the container will start
 pyton -m venv env 
 source ./env/bin/activate
 pip install -r requirements.txt
-python ./app/run.py
+python ./test.py
 ```
 
 ## Examples
