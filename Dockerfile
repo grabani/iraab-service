@@ -1,4 +1,4 @@
-FROM tiangolo/uwsgi-nginx-flask:latest
+FROM tiangolo/meinheld-gunicorn-flask:latest
 #RUN apk --update add bash nano
 ENV STATIC_URL /static
 ENV STATIC_PATH /var/www/app/static
