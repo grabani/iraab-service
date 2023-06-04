@@ -10,6 +10,14 @@ just run the start.sh file in sudo mode
 
 the container will start
 
+## Run it through python
+```shell
+pyton -m venv env 
+source ./env/bin/activate
+pip install -r requirements.txt
+python ./app/run.py
+```
+
 ## Examples
 ### use this command for interaction
 ```
