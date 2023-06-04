@@ -12,7 +12,7 @@ the container will start
 
 ## Run it through python
 ```shell
-pyton -m venv env 
+python -m venv env 
 source ./env/bin/activate
 pip install -r requirements.txt
 python ./app/run.py
